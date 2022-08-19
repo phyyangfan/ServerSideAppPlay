@@ -3,6 +3,76 @@
  */
 package ServerSideAppPlay;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/*
+ * Chat Server Prototype
+ * https://gist.github.com/vassjozsef/5d76cd7634995c841f683a15d78684c8
+ * 
+ * to test, run
+ * nc <hostname> <port>
+ * for example, for local test, run
+ * nc localhost 7273
+ */
+public class App {
+  public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
+
+    System.out.println("Starting chat server...");
+
+    ChatServer chatServer = new ChatServer();
+
+    chatServer.run();
+
+    System.out.println("Chat server stopped.");
+
+
+/*
+    ServerSocket server = new ServerSocket(80);
+    try {
+      System.out.println("Server has started on 127.0.0.1:80.\r\nWaiting for a connection…");
+      Socket client = server.accept();
+      
+      System.out.println("A client connected.");
+      InputStream inputStream = client.getInputStream();
+      OutputStream outputStream = client.getOutputStream();
+      while (true) {
+          int len = inputStream.available();
+          byte[] buff = new byte[len];
+          inputStream.read(buff);
+          outputStream.write(buff);
+      }
+    } catch (IOException e) {
+
+    }
+    server.close();
+*/
+  }
+}
+
+
+
+/*
+todo: take care of user log off mechanism
+          // :q
+          if (buff.length == 2 && buff[0] == ':' && buff[1] == 'q') {
+              inputStream.close();
+              outputStream.close();
+              break;
+          }
+
+ */
+
+/*
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -12,3 +82,4 @@ public class App {
         System.out.println(new App().getGreeting());
     }
 }
+*/
