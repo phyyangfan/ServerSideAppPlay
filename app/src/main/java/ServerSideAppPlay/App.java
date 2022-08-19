@@ -19,10 +19,17 @@ import java.util.regex.Pattern;
  * Chat Server Prototype
  * https://gist.github.com/vassjozsef/5d76cd7634995c841f683a15d78684c8
  * 
+ * on linux / mac
  * to test, run
  * nc <hostname> <port>
  * for example, for local test, run
  * nc localhost 7273
+ * 
+ * on windows
+ * to test, run
+ * putty telnet://<hostname>:<port>
+ * for example, for local test, run
+ * putty telnet://localhost:7273
  */
 public class App {
   public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
